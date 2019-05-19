@@ -9,15 +9,15 @@ open('http://localhost:3000');
 const getFileAndStatusCode = (url) => {
     let file;
     let statusCode;
-    const optionalFolderPath = process.argv[2];
-    const folderPath = optionalFolderPath || '.';
+    // set current folder as default
+    const folderPath = process.argv[2] || '.';
 
     try {
-        if (url.includes('.')) {
-            file = fs.readFileSync(folderPath + url);
+        if (url === '/') {
+            file = fs.readFileSync(folderPath + url + 'index.html');
         }
         else {
-            file = fs.readFileSync(folderPath + url + '/index.html');
+            file = fs.readFileSync(folderPath + url);
         }
         statusCode = 200;
     }
@@ -33,24 +33,30 @@ const getFileAndStatusCode = (url) => {
 const getContentType = (url) => {
     let contentType;
 
-    url.includes('.css')
-        ? contentType = 'text/css'
-        : contentType = 'text.html'
+    if (url.includes('.css')) {
+        contentType = 'text/css';
+    }
+    else if (url.includes('.png')){
+        contentType = 'image/png';
+    }
+    else {
+        contentType = 'text/html';
+    }
 
     return contentType;
 }
 
 
-const handleRequest = (req) => {
-    const { file, statusCode } = getFileAndStatusCode(req.url);
-    const contentType = getContentType(req.url);
+const handleRequestUrl = (url) => {
+    const { file, statusCode } = getFileAndStatusCode(url);
+    const contentType = getContentType(url);
 
     return { statusCode, contentType, file };
 }
 
 
 const server = http.createServer((req, res) => {
-    const { statusCode, contentType, file } = handleRequest(req);
+    const { statusCode, contentType, file } = handleRequestUrl(req.url);
 
     res.writeHead(statusCode, {'Content-Type': contentType});
     res.write(file);
