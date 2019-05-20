@@ -39,6 +39,9 @@ const getContentType = (url) => {
     else if (url.includes('.png')){
         contentType = 'image/png';
     }
+    else if (url.includes('.json')){
+        contentType = 'application/json';
+    }
     else {
         contentType = 'text/html';
     }
