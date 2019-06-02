@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<div class="welcome-page">
+    <nav class="nav">
+        <% if (username) { %>
+            <nav class="nav"><a href="/logout">Logout</a></nav>
+        <% } else { %>
+            <form action="/login" method="GET" class="login-form">
+                <button class="login-btn">Login</button>
+            </form>
+        <% } %>
+        
+    </nav>
+    <div class="form">
+        <h1>Welcome back <%= username %> !</h1>
+    </div>
+</div>

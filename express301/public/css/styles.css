@@ -1,0 +1,44 @@
+div {
+    width: 100%;
+}
+
+input {
+    height: 25px;
+    margin: 5px;
+}
+
+button {
+    height: 25px;
+    width: 75px;
+    margin: 10px;
+}
+
+p {
+    color: red;
+}
+
+h1 {
+    color: green;
+    text-align: center;
+}
+
+h2 {
+    color: red;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+/* .form {
+    display: flex;
+    justify-content: center;
+} */
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Home Page Test</title>
+	</head>
+	<body>
+		<h1 style="text-align: center;">Users enrolled: <%=count%></h1>
+		<hr>
+
+			
+		<h1>Sign In</h1>
+		<div>
+			<form method='POST' action='/signin'>
+				<input type="email" name="email" placeholder="Email">
+				<input type="password" name="password" placeholder="Password">
+				<button type='submit'>Sign In</button>
+			</form>
+		</div>
+		
+		<h1>Register</h1>
+		<div>
+			<form method='POST' action='/register'>
+			    <input type="text" name="name" placeholder="Name">
+				<input type="email" name="email" placeholder="Email">
+				<input type="password" name="password" placeholder="Password">
+				<button type='submit'>Register</button>
+			</form>
+		</div>
+		
+		
+		
+		
+		<h1>Detect image url</h1>
+		<div>
+			<form method='POST' action='/detect'>
+			    <input type="text" name="name" placeholder="Image URL">
+				<button type='submit'>Detect</button>
+			</form>
+			
+		</div>
+	</body>
+</html>
