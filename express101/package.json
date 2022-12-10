@@ -10,7 +10,7 @@
   "author": "s-gabor",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.0",
+    "express": "^4.17.3",
     "open": "^6.3.0"
   },
   "devDependencies": {
